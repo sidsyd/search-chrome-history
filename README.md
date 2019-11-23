@@ -1,1 +1,1 @@
-# search-chrome-history-by-date
+# search-chrome-history
