@@ -7,12 +7,13 @@ class SearchChromeHistory {
     }
 
     private onSearch() {
+        const text = (document.getElementById('text') as HTMLInputElement).value;
+        const maxResults = Number((document.getElementById('maxResults') as HTMLInputElement).value);
         const startTime = new Date((document.getElementById('startTime') as HTMLInputElement).value).getTime();
         const endTime = new Date((document.getElementById('endTime') as HTMLInputElement).value).getTime();
-        const maxResults = Number((document.getElementById('maxResults') as HTMLInputElement).value);
 
         const searchQuery = {
-            text: '',
+            text: text,
             startTime,
             endTime,
             maxResults,

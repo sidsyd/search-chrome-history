@@ -101,11 +101,12 @@ class SearchChromeHistory {
         this.sb.onclick = this.onSearch;
     }
     onSearch() {
+        const text = document.getElementById('text').value;
+        const maxResults = Number(document.getElementById('maxResults').value);
         const startTime = new Date(document.getElementById('startTime').value).getTime();
         const endTime = new Date(document.getElementById('endTime').value).getTime();
-        const maxResults = Number(document.getElementById('maxResults').value);
         const searchQuery = {
-            text: '',
+            text: text,
             startTime,
             endTime,
             maxResults,
