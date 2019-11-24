@@ -6,17 +6,24 @@
     <meta http-equiv="content-type" charset="utf-8">
 </head>
 <body>
-    <div id="searchConditon">
-        <span>chromeの閲覧履歴を期間を指定して取得します</span><br>
+    <div id="form">
+        <h1>searching your chrome history</h1><br>
         <br>
-        <span>開始日: </span><input type="date" id="startTime"><br>
-        <br>
-        <span>終了日: </span><input type="date" id="endTime"><br>
-        <br>
-        <span>検索数: </span><input type="text" id="maxResults">
-    </div>
-    <div id="buttonArea">
-        <button id="onSearch"><span>検索</span></button>
+        <div id="maxResultsArea">
+            <span>max result: </span><br>
+            <input type="number" max="100" id="maxResults">
+        </div>
+        <div id="buttonArea">
+	        <button id="onSearch"><span>search</span></button>
+        </div>
+        <div id="startTimeArea">
+            <span>from: </span><br>
+            <input type="datetime-local" id="startTime">
+        </div>
+        <div id="endTimeArea">
+            <span>to: </span><br>
+            <input type="datetime-local" id="endTime">
+        </div>
     </div>
 </body>
 </html>
