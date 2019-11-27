@@ -97,21 +97,19 @@
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.searchQuery) {
-        var ul = document.getElementById('historySearchResults');
-        var list = '';
+        const ul = document.getElementById('historySearchResults');
+        const li = [];
         chrome.history.search(request.searchQuery, (historyItems) => {
             historyItems.forEach(historyItem => {
                 let title = historyItem.title;
                 let href = historyItem.url;
                 if (title) {
-                    let aTag = document.createElement('a');
-                    aTag.href = href;
-                    aTag.innerHTML = title;
-                    let li = document.createElement('li');
-                    li.appendChild(aTag);
-                    ul.appendChild(li);
+                    li.push('<li><a href=' + href + '>' +
+                        title +
+                        '</a></li>');
                 }
             });
+            ul.innerHTML = li.join('');
         });
     }
 });

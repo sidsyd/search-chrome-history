@@ -1,20 +1,20 @@
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.searchQuery) {
-        var ul = document.getElementById('historySearchResults') as HTMLElement;
-        var list = '';
+        const ul = document.getElementById('historySearchResults') as HTMLElement;
+        const li: string[] = [];
         chrome.history.search(request.searchQuery, (historyItems) => {
             historyItems.forEach(historyItem => {
                 let title = historyItem.title as string;
                 let href = historyItem.url as string;
                 if (title) {
-                    let aTag = document.createElement('a');
-                    aTag.href = href;
-                    aTag.innerHTML = title;
-                    let li = document.createElement('li');
-                    li.appendChild(aTag);
-                    ul.appendChild(li);
+                    li.push(
+                        '<li><a href=' + href + '>' + 
+                        title +
+                        '</a></li>'
+                    );
                 }
             });
+            ul.innerHTML = li.join('');
         });
     }
 })
